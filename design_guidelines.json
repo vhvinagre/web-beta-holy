@@ -1,0 +1,180 @@
+{
+  "brand": {
+    "name": "hōly®",
+    "tagline": "Todo comienza con un dátil.",
+    "tone": "Direct, transparent, grounded, premium",
+    "logo_spec": "Lowercase 'holy' with a floating halo over the 'o' and a registered trademark symbol ®. On colored backgrounds, use cream/white."
+  },
+  "typography": {
+    "primary": {
+      "family": "Anton, sans-serif",
+      "usage": "Display, hero titles, giant CTAs, manifesto numbers",
+      "rules": "Always uppercase. Apply negative letter-spacing (`tracking-tighter` or `tracking-tight`) for sizes larger than `text-4xl`."
+    },
+    "secondary": {
+      "family": "Inter, sans-serif",
+      "weights": [400, 600, 700],
+      "usage": "Body, UI elements, labels, buttons, accordion text",
+      "rules": "Clean, highly legible. Do not use Anton for anything smaller than section headings or decorative elements."
+    }
+  },
+  "colors": {
+    "background": {
+      "cream": "#F6F1E7",
+      "dark_coffee": "#2b2620",
+      "cart_drawer": "#1b1b1b"
+    },
+    "text": {
+      "dark": "#2b2620",
+      "light": "#F6F1E7",
+      "terracotta": "#B5652E"
+    },
+    "accents": {
+      "terracotta": "#B5652E",
+      "muted_coffee_1": "#6b6154",
+      "muted_coffee_2": "#8a7d68",
+      "muted_coffee_3": "#9c8f79"
+    },
+    "surfaces": {
+      "dark_cards_base": "#382f26",
+      "dark_cards_hover": "#453a2e"
+    },
+    "product_backgrounds": {
+      "cookies": "#4B4FA0",
+      "hazelnut_paste": "#B5652E",
+      "bars": "#A9862F",
+      "syrup": "#6E4423",
+      "transition": "650ms cubic-bezier(0.4,0,0.2,1)"
+    }
+  },
+  "visual_enhancers": {
+    "noise_texture": "SVG overlay with `feTurbulence` (type='fractalNoise', baseFrequency='0.8', numOctaves='3', stitchTiles='stitch'). Apply to `.noise-overlay` wrapper with `fixed inset-0 pointer-events-none opacity-40 mix-blend-overlay z-50`. Use faint opacity on dark sections.",
+    "badges": "Outline style. Labels: '100% Natural', 'Alto en Fibra', 'Libre Azúcar Añadida'. Thin borders, uppercase, tracking-widest, text-xs.",
+    "pricing_format": "CLP ($6.990) - Chilean peso format.",
+    "borders": "Fine 1px dividers (`border-[#9c8f79]/30` or similar low-contrast muted coffee) for FAQ and list sections."
+  },
+  "components": {
+    "hero_coverflow": {
+      "type": "Framer Motion Custom Carousel",
+      "behavior": "Center item large and clear. Lateral items scaled down, `blur(2px)`, `opacity: 0.85`. Fourth item hidden, `blur(4px)`. Transform-origin: center bottom. Height: 62vh desktop / 42vh mobile. Auto-advance every 5s. Pause on hover.",
+      "controls": "Circular buttons with white borders for Next/Prev (‹ ›).",
+      "elements": {
+        "cta_add": "White pill button 'Agregar' on the active product card.",
+        "kicker_left": "Bottom-left fixed: 'PRODUCTOS HECHOS CON DÁTIL' (small) + Anton Title + Description.",
+        "giant_cta_right": "Bottom-right fixed: Giant Anton 'VER VARIEDADES' + arrow. Triggers smooth scroll to products section."
+      }
+    },
+    "cart_drawer": {
+      "type": "Sidebar / Sheet",
+      "style": "Background #1b1b1b. No default borders.",
+      "features": "Quantity controls, total calculated in CLP, WhatsApp ordering integration, and contact form."
+    },
+    "masonry_gallery": {
+      "type": "CSS Columns or Grid Masonry",
+      "usage": "Consumption situations (lifestyle). Include hover zoom effects.",
+      "features": "Lightbox on click (framer-motion AnimatePresence)."
+    },
+    "faq_accordion": {
+      "type": "Radix / Shadcn Accordion",
+      "style": "Max-width ~720px. Fine dividers. Toggle icon: + / - in terracotta color.",
+      "typography": "Question in Inter 600, Answer in Inter 400 (muted coffee color)."
+    },
+    "marquee": {
+      "type": "Editorial Ribbon",
+      "behavior": "Very slow, smooth drift. Anton font, outline or solid depending on background contrast. Text: '100% NATURAL • SIN AZÚCAR AÑADIDA • HŌLY® • '."
+    }
+  },
+  "grids_and_layouts": {
+    "spacing_philosophy": "Generous editorial spacing. Sections should have at least `py-24` or `py-32` on desktop.",
+    "containers": "Use max-w-7xl for standard sections, but allow hero and marquee to break out (full width).",
+    "product_grid": "Tetris or Bento grid approach for 'encuentra el tuyo' category section."
+  },
+  "motion_and_interactions": {
+    "smooth_scroll": "Implement `@studio-freight/react-lenis` at the root layout. This is MANDATORY for the Awwwards feel.",
+    "reveals": {
+      "masked_text": "Wrap lines of text in `overflow-hidden`. Animate child from `y: 100%` to `y: 0` using Framer Motion on initial load or `whileInView`.",
+      "staggered_cards": "Use Framer Motion `variants` to stagger children (products, manifesto chapters) entering the viewport."
+    },
+    "hover_effects": {
+      "buttons": "Hover scale(1.04) with transition `cubic-bezier(0.4, 0, 0.2, 1)`.",
+      "cards": "Dark cards: hover translateY(-4px) and bg change to #453a2e."
+    },
+    "parallax": "Subtle Framer Motion `useScroll` and `useTransform` on the active hero packshot to give a 3D float effect when scrolling down."
+  },
+  "accessibility": {
+    "reduced_motion": "Ensure `prefers-reduced-motion` pauses the 5s hero auto-advance and disables aggressive parallax.",
+    "contrast": "Ensure all text meets AA contrast over its respective background. Use terracotta for accents, not primary text.",
+    "testing": "Add `data-testid` to all interactive elements."
+  },
+  "images": {
+    "hero_products": [
+      {
+        "id": "cookies",
+        "url": "https://images.pexels.com/photos/8750737/pexels-photo-8750737.jpeg",
+        "description": "Stacked homemade oatmeal cookies in a glass jar"
+      },
+      {
+        "id": "hazelnut_paste",
+        "url": "https://images.unsplash.com/photo-1630960125584-5d4562a44390",
+        "description": "Brown labeled jar (Date paste substitute)"
+      },
+      {
+        "id": "bars",
+        "url": "https://images.pexels.com/photos/14416431/pexels-photo-14416431.jpeg",
+        "description": "Hand holding a healthy snack bar in wrapper"
+      },
+      {
+        "id": "syrup",
+        "url": "https://images.pexels.com/photos/9941669/pexels-photo-9941669.jpeg",
+        "description": "Dark aesthetic syrup bottle"
+      }
+    ],
+    "ingredients": [
+      {
+        "id": "dates_raw",
+        "url": "https://images.pexels.com/photos/20632754/pexels-photo-20632754.jpeg",
+        "description": "Glass bowl of dried dates"
+      }
+    ],
+    "lifestyle_masonry": [
+      {
+        "url": "https://images.unsplash.com/photo-1716655399699-c32305ba375b",
+        "description": "Woman eating healthy snack"
+      },
+      {
+        "url": "https://images.pexels.com/photos/8844389/pexels-photo-8844389.jpeg",
+        "description": "Hands holding granola bar"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1554886729-fe8d4499a108",
+        "description": "Cookies on ceramic plate"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1693835791992-ae0c42f7074d",
+        "description": "Bread with chocolate/date spread"
+      },
+      {
+        "url": "https://images.pexels.com/photos/4276336/pexels-photo-4276336.jpeg",
+        "description": "Hand dipping chocolate chip cookie"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "INSTALL DEPENDENCIES: Install `@studio-freight/react-lenis`, `framer-motion`, `react-fast-marquee`, `lucide-react`, and any needed Shadcn components (accordion, sheet/drawer, form).",
+    "GLOBAL CSS & FONTS: Import Anton and Inter from Google Fonts. Set up root CSS variables for the exact palette requested. Add the `.noise-overlay` class with SVG `feTurbulence` as a fixed top-level element.",
+    "ROUTING: Set up React Router. Create the Landing Page (`/`) and a dynamic Product Route (`/producto/:slug`).",
+    "HERO IMPLEMENTATION: Create a state `activeIndex` for the 4 products. Tie the background color of the hero wrapper to a mapping of `activeIndex -> Color`. Implement the coverflow math using Framer Motion (scale, x-offset, blur, z-index based on distance from activeIndex).",
+    "MASKED REVEALS: Build a reusable `<MaskedText>` component that splits text into lines, wraps them in `overflow: hidden`, and animates the inner element from `y: '100%'` to `0`.",
+    "PRODUCT PAGE: Implement the `/producto/:slug` view. It needs a flavor selector that updates the main product image and UI accent color.",
+    "CART DRAWER: Implement a right-side Shadcn Sheet for the cart. Use #1b1b1b as background. Include a WhatsApp checkout button and contact form toggle.",
+    "MASONRY & FAQ: Build the lifestyle masonry grid and the FAQ accordion. Ensure the accordion uses the exact terracotta color for the +/- icons.",
+    "FOOTER: Dark column footer (#2b2620 background), copyright '© 2026 hōly®'."
+  ],
+  "universal_guidelines": [
+    "NEVER use generic fonts for headings. Always Anton.",
+    "NEVER use pure transparent backgrounds if content scrolls beneath. Use #2b2620 or #F6F1E7 solids.",
+    "ALWAYS implement smooth scroll (Lenis) and parallax elements for the Awwwards-level feel.",
+    "DO NOT add emojis as icons. Use Lucide or SVG.",
+    "Prioritize optical alignment and generous whitespace. Cramped layouts ruin the premium feel."
+  ]
+}
